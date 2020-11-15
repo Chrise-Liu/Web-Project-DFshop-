@@ -1,0 +1,168 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block title %}
+
+<!-- 刪除確認函數 -->
+<script type="text/javascript">
+    function confirmLink(message){
+    if (message == "") message = "確定";
+        document.returnValue = confirm(message);
+    }
+
+    function delconfirmLink(){
+	var r=confirm("您確定要刪除所有選購商品嗎？");
+	if (r==true){
+		window.location='/product/delallcart';
+	}
+	else{
+		;
+	}
+}
+</script>
+
+<div class="maindiv">
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <!-- title部分 -->
+        <div class="title">
+            <div><strong>購物車訂單 Shopping List</strong></div>
+        </div>
+
+        <!-- 表單部分 -->
+        <table id="t1" width="75%" border="0" align="center" cellpadding="4" cellspacing="0">
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <th align="left"><strong>商品名稱</strong></th>
+                <th width="80" align="center"><strong>單價</strong></th>
+                <th width="80" align="center"><strong>數量</strong></th>
+                <th width="100" align="center"><strong>金額</strong></th>
+                <th width="60" align="center" ><strong>取消</strong></th>
+            </tr>
+            
+            {% for unit in cartlist %}
+            <tr>
+                <td align="left">{{ unit.pname }}</td>
+                <td width="80" align="center">{{ unit.price }}</td>
+                <td width="80" align="center">{{ unit.amount }}</td>
+                <td width="80" align="center">{{ unit.total }}</td>
+                <td width="60" align="center"></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td align="left" bgcolor="red">購物車目前是空的！</td>
+                <td width="80" align="center" bgcolor="red"><strong></strong></td>
+                <td width="80" align="center" bgcolor="red"><strong></strong></td>
+                <td width="100" align="center" bgcolor="red"><strong></strong></td>
+                <td width="60" align="center" bgcolor="red"><strong></strong></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td colspan="4" align="left" class="upline"><strong>小計</strong></td>
+                <td align="center" class="upline">{{ alltotal }}</td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td colspan="4" align="left" class="upline"><strong>運費</strong>(固定運費 100 元)</td>
+                <td align="center" class="upline">$ 100</td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td colspan="4" align="left" class="upline"><strong>總計</strong></td>
+                <td align="left"" class="upline"><strong>{{ all }}元</strong></td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+        </table>
+
+        <!-- 功能按鈕 向後端傳指定功能url -->
+        <!-- <table id="t2" border="0" align="center" cellpadding="10" cellspacing="0">
+            <tr>
+                <td><input type="button" name="Continue" value="繼續購物" onclick="window.location='/product/list'"></td>
+                <td><input type="submit" name="Submit" value="更新購物車"></td>
+                <td><input type="button" name="Empty" value="清空購物車" onclick="delconfirmLink()"></td>
+                <td><input type="button" name="Order" value="我要結帳" onclick="window.location=''"></td>
+            </tr>
+
+        </table> -->
+    
+    
+
+        <div class="title">
+            <div><strong>客戶資訊 Consumer Information</strong></div>
+        </div>
+
+        <table id="t1" width="75%" border="0" align="center" cellpadding="4" cellspacing="0">
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <th width="100"align="center"><strong>資訊</strong></th>
+                <th width="300" align="center"><strong>內容</strong></th>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td width="100"align="center">收件人姓名</td>
+                <td width="300" align="center"><input type="text" name="username" value="{{ user.username }}"></td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td width="100"align="center">電話</td>
+                <td width="300" align="center"><input type="tel" name="phone" value="{{ user.phone }}"></td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td width="100"align="center">住址</td>
+                <td width="300" align="center"><textarea name="addr"cols="22" rows="3">{{ user.addr }}</textarea></td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td width="100"align="center">E-mail</td>
+                <td width="300" align="center"><input type="email" name="email" value="{{ user.email }}"></td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+            <tr>
+                <td width="100"align="center">付款方式</td>
+                <td width="300" align="center">一律使用貨到付款</td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+        </table>
+
+        <table id="t2" border="0" align="center" cellpadding="10" cellspacing="0">
+            <td><input type="button" name="Continue" value="繼續購物" onclick="window.location='/product/list'"></td>
+            <td><input type="button" name="Submit" value="修改購物車內容" onclick="window.location='/product/cart'"></td>
+            <td><input type="submit" name="Empty" value="確認購買"></td>
+        </table>
+    </form>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

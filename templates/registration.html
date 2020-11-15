@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form</title>
+    <link rel="stylesheet" href="/static/css/reg_style.css">
+</head>
+<body>
+    <form class="wrapper" method="POST">
+        <div class="imga"><a href="/"><img src="/static/images/logo.jpg" width="260px"></a></div>
+        
+        {% csrf_token %}
+        <div class="title">
+            請填寫註冊表單
+        </div>
+        <div class="form">
+            <div class="input_field">
+                <label>信箱：</label>
+                {{ userform.email }}
+            </div>
+            <div class="input_field">
+                <label>密碼：</label>
+                <input type="password" class="input" name="password">
+            </div>
+            <div class="input_field">
+                <label>確認密碼：</label>
+                <input type="password" class="input" name="password1">
+            </div>
+            <div class="input_field">
+                <label>姓名：</label>
+                {{ userform.username }}
+            </div>
+            <div class="input_field">
+                <label>性別：</label>
+                <div class="custom_select">
+                    <select name="sex">
+                        <option value=""></option>
+                        <option value="M">男</option>
+                        <option value="W">女</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input_field">
+                <label>電話：</label>
+                {{ userform.phone }}
+            </div>
+            <div class="input_field">
+                <label>地址：</label>
+                {{ userform.addr }}
+            </div>
+            <div class="input_field terms">
+                <label class="check">
+                    <input type="checkbox" id="check1" name="">
+                    <span class="checkmark"></span>
+                </label>
+                <p>同意遵守本網站之相關規定。</p>
+            </div>
+            <div class="input_field">
+                <input id="sub" type="submit" value="填寫完成" class="btn">
+            </div>
+            <div class="input_field">
+                <div>{{ msg }}</div>
+            </div>
+        </div>
+    </form>
+
+    <!-- <script type="text/javascript">
+        var checkbox = document.getElementById('check1');
+        var btn = document.getElementById('sub');
+        btn.onclick = function(){
+            if (checkbox.checked = false) {
+                alert('需要句選')
+            }
+        }
+    </script> -->
+</body>
+
+</html>

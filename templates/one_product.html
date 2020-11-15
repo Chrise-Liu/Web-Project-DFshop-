@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+<!-- <link rel="stylesheet" href="one_product_style.css"> -->
+{% block title %}
+
+<script>
+    function confirm_login() {
+        alert('商品添加成功')
+    }
+    function confirm_logout() {
+        alert('請先登入，再挑選商品唷！')
+    }
+</script>
+
+<div class="box">
+    <div class="coll-1">
+        <div class="coll-2">
+            <!-- l1 顯示購物車內商品數量 -->
+            <div class="l1">
+                {% if status == 'login' %}
+                <a href="/product/cart/">
+                    <div>&#x1F6D2&#x1F6D2&#x1F6D2 您目前購物車中有：{{ item_num }}件商品 &#x1F6D2&#x1F6D2&#x1F6D2</div>
+                </a>
+                {% else %}
+                <a href="/user/login/">您尚未登入，登入後立即選購商品！！！</a>
+                {% endif %}
+            </div>
+            <!-- l2 產品title-->
+            <div class="l2">
+                <p>商品項目</p>
+            </div>
+            <!-- l3 循環列出所有商品 -->
+            <div class="l4">
+
+                <div class="item">
+                    <div class="img"><a href=""><img src="{{ product.pimage }}" alt=""></a></div>
+                    <div class="txt">
+
+                        <!-- 添加到購物車 -->
+                        <form class="buy" method="POST">
+                            {% csrf_token %}
+
+                            <div class="item_name">商品名稱：<br>{{ product.pname }}</div>
+                            <div class="price">售價：{{ product.pprice }}/100g</div>
+                                <div>
+                                    <p>購買數量：</p>
+                                    <input type="number" name="num" value="1">
+                                    <!-- 需要判斷status -->
+                                    {% if status == 'login' %}
+                                    <input type="submit" value="添加到購物車 &#10173;" onclick="confirm_login()">
+                                    {% else %}
+                                    <input type="button" value="添加到購物車 &#10173;" onclick="confirm_logout(); window.location='/user/login'">
+                                    {% endif %}
+                                </div>
+                                <a href="/product/list/">回到商品列表 &#10173;</a>
+
+                        </form>
+
+                    </div>
+                    <div class="description">
+                        <div>商品描述：</div>
+                        <div>{{ product.pdescription }}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="coll-3">
+            <!-- 相關資訊欄 -->
+            <div class="r1">
+                <p>資訊中心</p>
+            </div>
+            <!-- ？？？？？ -->
+            <div class="r2">
+                {% if status == 'login' %}
+                <li><a href="/product/cart/">查看購物車</a></li>
+                <li><a href="">訂單查詢</a></li>
+                {% else %}
+                <li><a href="/user/login/">查看購物車</a></li>
+                <li><a href="/user/login/">訂單查詢</a></li>
+                {% endif %}
+                <li><a href="/">返回首頁</a></li>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

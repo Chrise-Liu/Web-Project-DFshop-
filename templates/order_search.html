@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block title %}
+
+<div class="maindiv">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <!-- title部分 -->
+        <div class="title">
+            <div><strong>查詢訂單狀況 Status of The Order</strong></div>
+        </div>
+
+        <div class="fin">
+            <div class="title2">訂單查詢</div>
+            <div class="pack">
+                <form action="" method="POST">
+                    <div class="search">
+                        <p><strong>請輸入訂單編號：</strong></p>
+                        <div class="idnum">
+                            <input type="text" name="orderid" placeholder="例如：1091100000">
+                        </div>
+                        
+                        <p><strong>請輸入信箱：</strong></p>
+                        <div class="idnum">
+                            <input type="text" name="email" placeholder="例如：example@gmail.com">
+                        </div>
+                        <div class="idbtn">
+                            <input type="submit" value="前往查詢">
+                        </div>
+                        <div class="msg">{{ msg }}</div>
+                    </div>
+                    
+                    
+                </form>
+            </div>
+        </div>
+        <div class="useless"></div>
+
+
+        
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

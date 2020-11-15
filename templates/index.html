@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dried Fruit Shop | Handmade</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
+
+    <!-- 下面：連接模板，呈現商品評價星星。 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="/"><img src="{% static 'images/logo.jpg' %}" width="260px"></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/">首頁</a></li>
+                        <li><a href="/product/list/">商品</a></li>
+
+                        {% if status == 'login' %}
+                        <li><a href="/product/cart/">購物車</a></li>
+                        {% else %}
+                        <li><a href="/user/login/">購物車</a></li>
+                        {% endif %}
+
+                        {% if status == 'login' %}
+                        <li><a href="/product/order_search/">訂單查詢</a></li>
+                        {% else %}
+                        <li><a href="/user/login/">訂單查詢</a></li>
+                        {% endif %}
+
+                        <li><a href="/product/qanda/">Q&A</a></li>
+
+                        {% if status == 'login' %}
+                        <li><p>歡迎{{ username }}</p><a href="/user/logout/">登出</a></li>
+                        {% else %}
+                        <li><a href="/user/login/">登入</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            {% block title %}
+            <div class="row">
+                <div class="col-2">
+                    <h1>果乾的美味，你最知道！</h1>
+                    <p>天然有機無農藥，安心健康最重要。</p>
+                    <a href="/product/list/" class="btn">來去逛逛吧 &#9754;</a>
+                </div>
+                <div class="col-2">
+                    <img src="{% static 'images/big01.jpg' %}">
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+
+    {% block content %}
+
+    <!-- 果茶廣告 -->
+
+    <div class="categories">
+        <div class="small-container">
+            <h2 class="title1">果乾茶飲，泡出屬於你的悠閒生活！</h2>
+            <div class="row">
+                <div class="col-3">
+                    <img src="static/images/ex01.jpg" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="static/images/ex03.jpg" alt="">
+                </div>
+                <div class="col-3">
+                    <img src="static/images/ex02.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 精選商品 -->
+
+    <div class="small-container">
+        <h2 class="title">精選商品</h2>
+        <div class="row">
+            <div class="col-4">
+                <a href="/product/list/"><img src="static/images/f01.jpg"></a> 
+                <h4>鳳梨果乾</h4>
+                <!-- 評價星星模板 -->
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>售價：150元/300g</p>
+            </div>
+            <div class="col-4">
+                <a href="/product/list/"><img src="static/images/f02.jpg"></a> 
+                <h4>芭樂果乾</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                <p>售價：150元/300g</p>
+            </div>
+            <div class="col-4">
+                <a href="/product/list/"><img src="static/images/f03.jpg"></a> 
+                <h4>芒果果乾</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                <p>售價：150元/300g</p>
+            </div>
+            <div class="col-4">
+                <a href="/product/list/"><img src="static/images/f04.jpg"></a> 
+                <h4>香蕉果乾</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                <p>售價：120元/300g</p>
+            </div>
+        </div>
+        <a href="/product/list/" class="btn">前往查看所有商品詳情 &#9754;</a>
+    </div>
+
+    <!-- 未來商品廣告 -->
+
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <h3>未來上架商品</h3>
+                    <h1>有機可可粉</h1>
+                    <small>
+                        可可粉含有蛋白質、多種氨基酸<br>高熱量脂肪、銅、鐵、錳、鋅、磷、鉀、<br>
+                        維生素A、D、E、B1及具有多種生物活性功能的生物鹼。
+                    </small>
+                </div>
+                <div class="col-2">
+                    <img src="static/images/cocoa2.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- 底部 -->
+    {% block buttom %}
+    
+    <div class="buttom">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="{% static 'images/logo.jpg' %}">
+                </div>
+                <div class="col-5">
+                    <h3>歡迎訂購</h3>
+                    <small>
+                        訂購專線：09XX-XXX-XXX<br>
+                        E-mail：dfshop159@gmail.com<br>
+                        實體店面地址：XXXXXXXXXXXXXX
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+    
+    
+</body>
+</html>

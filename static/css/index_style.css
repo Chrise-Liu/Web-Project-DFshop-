@@ -1,0 +1,510 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #a9aa53;
+    border-radius: 8px;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li{
+    font-size: 25px;
+    display: inline-block;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: rgb(43, 43, 43);
+}
+p{
+    color: #555;
+}
+.container{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+}
+.col-2 p{
+    font-size: 20px;
+}
+.btn{
+    display: inline-block;
+    background: #a9aa53;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: #563434;
+}
+.header{
+    background: radial-gradient(#fff,#ffd2a8);
+}
+.categories{
+    margin: 70px 0;
+}
+.col-3{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+.col-3 img{
+    width: 100%;
+}
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.col-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: transform 0.5s;
+}
+.col-4 img{
+    width: 100%;
+}
+.col-4 p{
+    font-size: 14px;
+    color: black;
+}
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+.title1{
+    text-align: center;
+    margin: 0 auto 20px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+.title::after{
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h4{
+    color: rgb(0, 0, 0);
+    font-weight: normal;
+}
+.rating .fa{
+    color: #ff523b;
+}
+.col-4:hover{
+    transform: translateY(-5px);
+}
+/* 廣告 */
+.offer{
+    background: radial-gradient(#fff,#ffd2a8);
+}
+/* .container-2{
+    max-width: 1300px;
+    margin: 70px 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    float: left;
+} */
+.buttom{
+    background: rgb(0, 0, 0);
+    /* width: 1300px;
+    margin: auto;
+    float: left;
+    align-items: center; */
+}
+.col-5{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.col-5 img{
+    max-width: 50%;
+    padding: 10px 0;
+}
+.col-5 h3{
+    color: white;
+    font-size: 20px;
+    line-height: 44px;
+    margin: 0 0;
+}
+.col-5 small{
+    color: white;
+    font-size: 15px;
+}
+
+/* 以下為products */
+
+.coll-1{
+    /* display: inline-block; */
+    float: left;
+    margin-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 1200px;
+    /* height: 200px; */
+    /* border: solid 1px red; */
+}
+.coll-2{
+    display: inline-block;
+    width: 65%;
+    float: left;
+    /* height: 200px; */
+    /* border: solid 1px blue; */
+}
+.coll-2 .l1{
+    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.coll-2 .l1 div{
+    background: rgb(150, 214, 125);
+}
+.coll-2 .l2{
+    margin-left: 10px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.coll-3{
+    background: rgb(209, 209, 209);
+    display: inline-block;
+    float: right;
+    width: 30%;
+    /* height: 200px; */
+    /* border: solid 1px green; */
+}
+.coll-3 .r1{
+    font-size: 25px;
+    margin: 10px 30px;
+}
+.coll-3 .r2{
+    margin: 10px 30px;
+    padding: 5px 0;
+}
+.coll-3 .r2 a{
+    text-decoration: none;
+    color: black;
+}
+.coll-2 .l3 .item{
+    border-top: 1px solid gray;
+    padding: 5px 0;
+    display: inline-block;
+}
+.coll-2 .l3 .item .img img{
+    width: 150px;
+    height: 120px;
+}
+.coll-2 .l3 .item .img{
+    display: inline-block;
+}
+.coll-2 .l3 .item .txt{
+    /* border: 1px solid orangered; */
+    display: inline-block;
+    float: right;
+    text-align: left;
+    width: 500px;
+}
+.coll-2 .l3 .item .txt .item_name{
+    font-size: 28px;
+    margin: 10px 0;
+    padding-left: 20px;
+}
+.coll-2 .l3 .item .txt .item_name a{
+    text-decoration: none;
+    color: black;
+}
+.coll-2 .l3 .item .txt .info{
+    margin: 10px 0;
+}
+.coll-2 .l3 .item .txt .price{
+    display: inline-block;
+    padding: 10px 20px;
+}
+.coll-2 .l3 .item .txt .btn{
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 2px 12px;
+    background: rgb(0, 73, 184);
+    margin-left: 20px;
+}
+.box{
+    overflow: hidden;
+}
+
+
+/* 以下為 one_product CSS */
+
+.coll-2 .l4 .item .description{
+    /* border: 1px solid red; */
+    padding: 20px 0px;
+}
+.coll-2 .l4 .item{
+    border-top: 1px solid gray;
+    padding: 5px 0;
+    display: inline-block;
+}
+.coll-2 .l4 .item .img img{
+    width: 280px;
+    height: 250px;
+}
+.coll-2 .l4 .item .img{
+    display: inline-block;
+}
+.coll-2 .l4 .item .txt{
+    /* border: 1px solid orangered; */
+    display: inline-block;
+    float: right;
+    text-align: left;
+    width: 350px;
+}
+.coll-2 .l4 .item .txt .item_name{
+    font-size: 28px;
+    margin: 10px 0;
+    /* padding-left: 20px; */
+}
+.coll-2 .l4 .item .txt .item_name a{
+    text-decoration: none;
+    color: black;
+}
+.coll-2 .l4 .item .txt .info{
+    margin: 10px 0;
+}
+.coll-2 .l4 .item .txt .price{
+    display: inline-block;
+    padding: 10px 20px 10px 0;
+}
+.coll-2 .l4 .item .txt .btn{
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 2px 12px;
+    background: rgb(0, 73, 184);
+    margin-left: 20px;
+}
+.coll-2 .l4 .item .txt .buy{
+    /* border: 1px solid red; */
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.coll-2 .l4 .item .txt .buy div input{
+    margin-bottom: 20px;
+}
+.coll-2 .l4 .item .txt .buy div input:nth-child(2){
+    /* border: 1px solid green; */
+    width: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.coll-2 .l4 .item .txt .buy div input:last-child{
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    background: rgb(0, 73, 184);
+    padding: 2px 12px;
+    margin-left: 20px;
+}
+.coll-2 .l4 .item .txt .buy a{
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    background: rgb(0, 73, 184);
+    padding: 2px 12px;
+    margin-left: 114px;
+}
+.coll-2 .l4 .item .description div:first-child{
+    font-size: 22px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+    border-top: 1px solid gray;
+}
+.coll-2 .l4 .item .description div:last-child{
+    margin-top: 5px;
+}
+
+
+/* 以下cart css */
+.maindiv .title{
+    margin: 10px 0;
+    padding-left: 10px;
+}
+#t1{
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding-left: 8px;
+    margin-top: 10px;
+    background: white;
+}
+#t1 tr th{
+    /* border-bottom: 1px solid red; */
+    padding-bottom: 20px;
+}
+.maindiv table tr td a{
+    background: rgb(0, 73, 184);
+    border-radius: 3px;
+    padding: 3px;
+    color: white;
+    text-decoration: none;
+}
+#t1 tr td input{
+    padding-left: 10px;
+}
+#t2{
+    margin: 10px auto 0;
+    padding-bottom: 100px;
+}
+#t2 tr td input{
+    background: rgb(0, 73, 184);
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 3px;
+    margin: 0 20px;
+}
+
+
+/* 以下 order_ok css */
+.fin .title2{
+    width: 200px;
+    padding: 20px;
+    background: rgb(172, 139, 139);
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+.fin .pack{
+    margin-top: 50px;
+}
+.fin .pack .word{
+    font-size: 20px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+.fin .pack .word a{
+    color: indigo;
+}
+.useless{
+    height: 250px;
+}
+
+
+/* 以下 order_search css */
+.search{
+    margin: auto;
+    width: 600px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background: white;
+}
+.search p{
+    width: 200px;
+    /* border: 1px solid red; */
+    display: inline-block;
+    text-align: center;
+    line-height: 70px;
+    padding-left: 30px;
+    margin-right: 30px;
+}
+.search .idnum{
+    display: inline-block;
+    margin-right: 50px;
+}
+.search .idbtn{
+    display: inline-block;
+}
+.search .idbtn input{
+    padding: 5px 10px;
+}
+.search .msg{
+    margin-top: 30px;
+    margin-left: 20px;
+    color: red;
+}
+
+
+/* 以下 q and a css */
+.search2{
+    margin: auto;
+    width: 1000px;
+    /* height: 150px; */
+    border: 1px solid black;
+    border-radius: 8px;
+    background: white;
+    padding: 10px;
+}
+.search2 .que{
+    font-size: 24px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+.search2 .ans{
+    font-size: 22px;
+    padding: 10px 0 20px 20px;
+    border-bottom: 1px solid gray;
+}
+.search2 .ans:last-child{
+    border: none;
+}
+.pack .btn{
+    margin-left: 150px;
+}
+.pack .btn a{
+    font-size: 20px;
+    color: white;
+}
+.lsque{
+    font-size: 24px;
+    margin-top: 30px;
+    padding-left: 10px;
+    color: red;
+}
